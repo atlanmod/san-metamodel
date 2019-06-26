@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="san" version="12.0.0.2017041100">
+  <ownedViewpoints name="Viewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StructuralDiagramDescription" initialisation="true" showOnStartup="true" domainClass="San::Network" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="deviceNode" domainClass="San::Device">
+          <style xsi:type="style:SquareDescription" showIcon="false" sizeComputationExpression="0" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>italic</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="measurandNode" domainClass="San::Measurand">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="0.1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/target-512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="measureNode" domainClass="San::Measure">
+          <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <sections maxValueExpression="5" valueExpression="4">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </sections>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="bindingNode" domainClass="San::Binding">
+          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="instrumentNode" domainClass="San::Instrument"/>
+        <edgeMappings name="edgeDeviceToInstrument" sourceMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='deviceNode']" targetMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@containerMappings[name='instrumentNodeContainer']" targetFinderExpression="aql:self.instrument">
+          <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="edgeFeatureToMeasure" preconditionExpression="aql:self.measure &lt;>  null" sourceMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@containerMappings[name='instrumentNodeContainer']/@subNodeMappings[name='featureNode']" targetMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='measureNode']" targetFinderExpression="aql:self.measure">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="edgeBindingToFeature" sourceMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='bindingNode']" targetMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@containerMappings[name='instrumentNodeContainer']/@subNodeMappings[name='featureNode']" targetFinderExpression="aql:self.feature">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="edgeBindingToDevice" sourceMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='bindingNode']" targetMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='deviceNode']" targetFinderExpression="aql:self.device">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="edgeBindingToMeasurand" sourceMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='bindingNode']" targetMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='measurandNode']" targetFinderExpression="aql:self.measurand">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="instrumentNodeContainer" doubleClickDescription="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@toolSections.0/@ownedTools[name='instrumentNodeDoubleClick']" domainClass="San::Instrument">
+          <subNodeMappings name="featureNode" semanticCandidatesExpression="feature:eAllContents" domainClass="San::Feature">
+            <conditionnalStyles predicateExpression="aql:self.isInput()">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:getFeatureName()" sizeComputationExpression="0.1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/actuator_transparent.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:not self.isInput()">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:getFeatureName()" sizeComputationExpression="0.1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/sensor_transparent.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="instrumentNodeDoubleClick" mappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@containerMappings[name='instrumentNodeContainer']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                <buttons labelExpression="new feature" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="createFeature" id="fr.icam.emit.san.design.FeatureCreation">
+                      <parameters name="instrument" value="aql:self.target"/>
+                    </firstModelOperations>
+                  </initialOperation>
+                </buttons>
+                <buttons labelExpression="new device" default="true" closeDialogOnClick="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:Let" variableName="instrument" valueExpression="aql:self.target">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target.eContainer()">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="San::Device" referenceName="devices">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="instrument" valueExpression="var:element"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new device"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </firstModelOperations>
+                  </initialOperation>
+                </buttons>
+                <page name="CreateDevicePage" label="CreateDevicePage" labelExpression="Create a new Device"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MeasurandCreation" label="new measurand" nodeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='measurandNode']">
+            <variable name="measurands"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="San::Measurand" referenceName="measurands">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new measurand"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MeasureCreation" label="new measure" nodeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='measureNode']">
+            <variable name="measures"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="San::Measure" referenceName="measures">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new measure"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="BindingCreation" label="new binding" nodeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='bindingNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="San::Binding" referenceName="bindings">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new binding"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="InstrumentCreation" label="new instrument" nodeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@nodeMappings[name='instrumentNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.target">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="InstrumentCreation" id="fr.icam.emit.san.design.InstrumentCreation">
+                  <parameters name="network" value="aql:self"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="edgeFeatureToMeasure" label="set feature's measure" edgeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@edgeMappings[name='edgeFeatureToMeasure']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="createEdge" id="fr.icam.emit.san.design.FeatureMeasureEdgeCreation">
+                <parameters name="source" value="aql:source"/>
+                <parameters name="target" value="aql:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="edgeBindingToMeasurand" label="set binding's measurand" edgeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@edgeMappings[name='edgeBindingToMeasurand']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="createEdgeBindingMeasurand" id="fr.icam.emit.san.design.BindingMeasurandEdgeCreation">
+                <parameters name="source" value="aql:source"/>
+                <parameters name="target" value="aql:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="edgeBindingToFeature" label="set binding's feature" edgeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@edgeMappings[name='edgeBindingToFeature']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="createEdgeBindingFeature" id="fr.icam.emit.san.design.BindingFeatureEdgeCreation">
+                <parameters name="source" value="aql:source"/>
+                <parameters name="target" value="aql:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="edgeBindingToDevice" label="set binding's device" edgeMappings="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='StructuralDiagramDescription']/@defaultLayer/@edgeMappings[name='edgeBindingToDevice']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="createEdgeBindingDevice" id="fr.icam.emit.san.design.BindingDeviceEdgeCreation">
+                <parameters name="source" value="aql:source"/>
+                <parameters name="target" value="aql:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BehaviouralDiagramDescription" domainClass="San::Network" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="processNode" domainClass="San::Process">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="0.1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/engine-loading-load-process-round-gears-64.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="eventNode" domainClass="San::Event">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.binding.device.name" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/event.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="taskNode" domainClass="San::Task">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.period+'ms'" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/task.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="thingNode" domainClass="San::Thing">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.instrument.name" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/thing.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="parameterNode" preconditionExpression="aql:self.eContainer().eClass() = San::Process" domainClass="San::Parameter">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/parameter64.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="argumentNode" preconditionExpression="aql:self.eContainer().eClass() = San::Trigger" domainClass="San::Argument">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.icam.emit.san.metamodel.editor/icons/full/png/argument64.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="edgeTriggerToProcess" sourceMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='BehaviouralDiagramDescription']/@defaultLayer/@nodeMappings[name='eventNode'] //@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='BehaviouralDiagramDescription']/@defaultLayer/@nodeMappings[name='taskNode'] //@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='BehaviouralDiagramDescription']/@defaultLayer/@nodeMappings[name='thingNode']" targetMapping="//@ownedViewpoints[name='Viewpoint']/@ownedRepresentations[name='BehaviouralDiagramDescription']/@defaultLayer/@nodeMappings[name='processNode']" targetFinderExpression="aql:self.process">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="fr.icam.emit.san.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="fr.icam.emit.san.design.Activator"
+               id="fr.icam.emit.san.design"
+	       name="san">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="fr.icam.emit.san.design.FeatureCreation"
+           id="fr.icam.emit.san.design.FeatureCreation">
+     </javaActions>
+     <javaActions
+           actionClass="fr.icam.emit.san.design.FeatureMeasureEdgeCreation"
+           id="fr.icam.emit.san.design.FeatureMeasureEdgeCreation">
+     </javaActions>
+     <javaActions
+           actionClass="fr.icam.emit.san.design.BindingDeviceEdgeCreation"
+           id="fr.icam.emit.san.design.BindingDeviceEdgeCreation">
+     </javaActions>
+     <javaActions
+           actionClass="fr.icam.emit.san.design.BindingFeatureEdgeCreation"
+           id="fr.icam.emit.san.design.BindingFeatureEdgeCreation">
+     </javaActions>
+     <javaActions
+           actionClass="fr.icam.emit.san.design.BindingMeasurandEdgeCreation"
+           id="fr.icam.emit.san.design.BindingMeasurandEdgeCreation">
+     </javaActions>
+     <javaActions
+           actionClass="fr.icam.emit.san.design.InstrumentCreation"
+           id="fr.icam.emit.san.design.InstrumentCreation">
+     </javaActions>
+  </extension>
+</plugin>
