@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<San:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:San="http://San/1.0" name="network" uri="http://app.icam.fr" port="1774">
+  <processes name="process1">
+    <parameters name="ParamBool2"/>
+  </processes>
+  <devices name="PeakTech1" instrument="//@instruments.0"/>
+  <devices name="PeackTech2" instrument="//@instruments.0"/>
+  <instruments name="Peaktech7224">
+    <features name="power measurement" measure="//@measures.0"/>
+    <features name="voltage measurement" factor="1" mode="Output" measure="//@measures.1"/>
+    <parameters name="ParamBool"/>
+  </instruments>
+  <measurands name="HPElitebookG4"/>
+  <measures name="Power" unit="Watt" type="Double"/>
+  <measures name="Voltage" unit="Volt" type="Double"/>
+  <bindings name="binding" device="//@devices.0" measurand="//@measurands.0" feature="//@instruments.0/@features.0"/>
+  <bindings name="binding2" device="//@devices.1" measurand="//@measurands.0" feature="//@instruments.0/@features.1"/>
+  <triggers xsi:type="San:Task" process="//@processes.0" period="200"/>
+  <triggers xsi:type="San:Event" process="//@processes.0" binding="//@bindings.0"/>
+  <triggers xsi:type="San:Thing" process="//@processes.0" instrument="//@instruments.0"/>
+</San:Network>
