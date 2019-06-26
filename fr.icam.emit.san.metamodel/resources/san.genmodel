@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.icam.emit.san.metamodel/src" modelPluginID="fr.icam.emit.san.metamodel"
+    modelName="San" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>San.ecore</foreignModel>
+  <genPackages prefix="San" disposableProviderFactory="true" ecorePackage="San.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="San.ecore#//Datatype">
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Double"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Float"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Long"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/String"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Time"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/TimeStamp"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Uri"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Datatype/Uuid"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="San.ecore#//Mode">
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Mode/Input"/>
+      <genEnumLiterals ecoreEnumLiteral="San.ecore#//Mode/Output"/>
+    </genEnums>
+    <genClasses ecoreClass="San.ecore#//Network">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Network/uri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Network/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/processes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/devices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/instruments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/measurands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/measures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/bindings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Network/triggers"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Device">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Device/instrument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Device/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Instrument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Instrument/features"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Instrument/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Measurand">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Measurand/measurand"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Binding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Binding/device"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Binding/measurand"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Binding/feature"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Measure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Measure/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Measure/type"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Argument/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Argument/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Feature/factor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Feature/mode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Feature/measure"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Process/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Trigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Trigger/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference San.ecore#//Trigger/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Event">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Event/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute San.ecore#//Task/period"/>
+    </genClasses>
+    <genClasses ecoreClass="San.ecore#//Thing">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference San.ecore#//Thing/instrument"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
