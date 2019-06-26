@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated san -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="San.presentation.SanModelWizardID"
+            name="%_UI_SanModelWizard_label"
+            class="San.presentation.SanModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SanModelFile.gif">
+         <description>%_UI_SanModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated san -->
+      <editor
+            id="San.presentation.SanEditorID"
+            name="%_UI_SanEditor_label"
+            icon="icons/full/obj16/SanModelFile.gif"
+            extensions="san"
+            class="San.presentation.SanEditor"
+            contributorClass="San.presentation.SanActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
