@@ -4,9 +4,9 @@ Meta-model for designing sensors and actuators networks.
 
 ## Installation
 
-Import given projets in Eclipse, start a new Runtime-configuration.
+Import the given projets (minus the model project) in Eclipse, and start a new Runtime-configuration.
 The new Eclipse hence started enables the creation of SAN models.
-The provided Model project has to be imported from the Runtime-configuration.
+The provided Model project can be imported in the Runtime-configuration, and be used as a example for understanding the model-driven framework.
 
 ## Design
 
